@@ -3,7 +3,7 @@
 }
 
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/PTIT\ login.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/PTIT_login.jpg);
     height: 100vh;
     background-size: 100%;
     background-position: center;
@@ -71,6 +71,7 @@ button:hover {
     background-color: #00d24d;
     border: 1px solid #00d24d;
 }
+
 button.ghost {
     background-color: transparent;
     border-color: #FFFFFF;
@@ -169,7 +170,6 @@ input {
     background: #d10d0d;
     /* background: -webkit-linear-gradient(to right, #FF4B2B, #8d646e); */
     /* background: linear-gradient(to right, #89feff, #08b76a); */
- 
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;

@@ -28,7 +28,6 @@ function signIn() {
     var password = document.getElementById('passwordLogin').value;
     if (username !== "" && password !== "") {
         alert('Đăng nhập thành công!');
-        window.location.href = "./trang-quan-ly-tai-khoan.html";
     } else {
         alert('Hãy nhập đủ thông tin');
     }

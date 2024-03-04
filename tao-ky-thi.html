@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo/Sửa Kỳ thi</title>
+    <link rel="stylesheet" href="createcontest_style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+</head>
+
+<body>
+    <div style="display: flex; height: 100vh; width: 100%;">
+        <div class="sidebar" style="width: 15%;">
+            <img src="Logo PTIT.jpg" width="170">
+            <ul>
+                <li><a href="./trang-quan-ly-tai-khoan.html">Quản lý tài khoản</a></li>
+                <li style="background-color: #f2f2f2;"><a href="./trang-bai-thi.html">Quản lý kỳ thi</a></li>
+                <li><a href="./trang-thong-ke.html">Thống kê</a></li>
+            </ul>
+        </div>
+        <div class="content" style="width: 85%;height: 100%; margin-bottom: 20px;">
+            <!-- <h1>Đây là phần content</h1> -->
+            <div class="taomoikythi">
+                <h1 id="pageTitle" style="margin-top: 100px;">AAA</h1>
+                <form id="examForm">
+                    <div class="mainContent" style="margin-top: 50px;">
+                        <div class="form-group">
+                            <label for="examName">Tên kỳ thi:</label>
+                            <input type="text" id="examName" name="examName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="examDescription">Mô tả:</label>
+                            <textarea id="examDescription" name="examDescription"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="examType">Loại kỳ thi:</label>
+                            <select id="examType" name="examType" style="font-size: 20px;" required onchange="toggleDateTimeFields() ">
+                      <option value="Tự do">Tự do</option>
+                      <option value="Thời gian cụ thể">Thời gian cụ thể</option>
+                    </select>
+                        </div>
+                        <div class="form-group" id="dateTimeFields">
+                            <label for="startDate">Ngày bắt đầu:</label>
+                            <input type="date" id="startDate" name="startDate">
+
+                            <label for="startTime">Giờ bắt đầu:</label>
+                            <input type="time" id="startTime" name="startTime">
+
+                            <label for="endDate">Ngày kết thúc:</label>
+                            <input type="date" id="endDate" name="endDate">
+
+                            <label for="endTime">Giờ kết thúc:</label>
+                            <input type="time" id="endTime" name="endTime">
+
+                            <label for="timeOfContest">Thời gian làm bài:</label>
+                            <input type="text" id="timeOfContest" name="timeOfContest">
+                        </div>
+                        <div class="form-group">
+                            <label id="listch" for="questionList">Danh sách câu hỏi:</label>
+                            <div id="questionContainer">
+                                <!-- Các câu hỏi sẽ được thêm vào đây -->
+                            </div>
+                            <label for="numberOfQuestions">Nhập số lượng câu hỏi muốn thêm:</label>
+
+                            <div class="input-with-button">
+                                <input type="number" style="font-size: 20px;" id="numberOfQuestions" name="numberOfQuestions" min="1" value="1" required>
+                                <button type="button" id="addQuestionBtn">Thêm câu hỏi</button>
+                            </div>
+                            <div id="numberOfQuestionsError" class="error-message" style="display: none;">Số lượng câu hỏi không hợp lệ!</div>
+                            <input type="file" id="excelInput" accept=".xlsx, .xls" style="display: inline-block;width: 515px">
+                            <button type="button" id="uploadExcelBtn" style="width:160px">Nhập đề thi từ Excel</button>
+                        </div>
+                        <button type="button" id="submit">Lưu</button>
+
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="createcontest.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('hasEdit') != null) {
+                document.getElementById('pageTitle').textContent = 'CHỈNH SỬA KỲ THI';
+                localStorage.removeItem('hasEdit');
+                loadFromEdit();
+            } else if (localStorage.getItem('hasNew') != null) {
+                document.getElementById('pageTitle').textContent = 'TẠO KỲ THI';
+                localStorage.removeItem('hasNew')
+            }
+            toggleDateTimeFields();
+        });
+
+        function loadFromEdit() {
+            const editData = JSON.parse(localStorage.getItem('editData'));
+            // Điền dữ liệu vào các trường input
+            document.getElementById('examName').value = editData.tenKyThi;
+            document.getElementById('examDescription').value = editData.moTa;
+            document.getElementById('examType').value = editData.loaiKyThi;
+            if (document.getElementById('examType').value === 'Thời gian cụ thể') {
+                document.getElementById('startDate').value = editData.ngayBatDau;
+                document.getElementById('startTime').value = editData.gioBatDau;
+                document.getElementById('endDate').value = editData.ngayKetThuc;
+                document.getElementById('endTime').value = editData.gioKetThuc;
+                document.getElementById('timeOfContest').value = editData.thoiGianLamBai;
+            }
+        }
+
+        function toggleDateTimeFields() {
+
+            if (document.getElementById('examType') == null) {
+                return;
+            }
+            const examTypeSelect = document.getElementById('examType');
+            const dateTimeFields = document.getElementById('dateTimeFields');
+
+            if (examTypeSelect.value === 'Thời gian cụ thể') {
+                dateTimeFields.style.display = 'block';
+            } else {
+                dateTimeFields.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>

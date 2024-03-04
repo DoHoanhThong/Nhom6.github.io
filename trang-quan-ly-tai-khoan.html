@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="temp.css">
+</head>
+
+<body>
+    <div style="display: flex; height: 100vh; width: 100%;">
+        <div class="sidebar" style="width: 15%;">
+            <img src="Logo PTIT.jpg" width="170">
+            <ul>
+                <li style="background-color: #f2f2f2;"><a href="./trang-quan-ly-tai-khoan.html">Quản lý tài khoản</a></li>
+                <li><a href="./trang-bai-thi.html">Quản lý kỳ thi</a></li>
+                <li><a href="./trang-thong-ke.html">Thống kê</a></li>
+            </ul>
+        </div>
+        <div class="content" style="width: 85%; margin-bottom: 20px;">
+            <div class="grid-pane">
+                <div class="grid-element">
+                    <h2>Số lượng người dùng</h2>
+                    <p id="userCount">0</p>
+                </div>
+                <div class="grid-element">
+                    <h2>Tỷ lệ hoàn thành</h2>
+                    <p id="completionRate">0%</p>
+                </div>
+                <div class="grid-element">
+                    <h2>Điểm trung bình</h2>
+                    <p id="averageScore">0</p>
+                </div>
+            </div>
+            <div class="exam-list">
+                <div style="display: flex; justify-content: space-between;">
+                    <h2 style="text-align: center; line-height: 57.6px;">Quản lý tài khoản</h2>
+                    <button id="addExamButton">Thêm mới kỳ thi</button>
+                </div>
+                <table id="examTable">
+                    <thead>
+                        <tr>
+                            <th>Tên kỳ thi</th>
+                            <th>Ngày diễn ra</th>
+                            <th>Chỉnh sửa</th>
+                            <th>Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dữ liệu kỳ thi sẽ được thêm vào đây -->
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <!-- <script src="script.js"></script> -->
+</body>
+
+</html>

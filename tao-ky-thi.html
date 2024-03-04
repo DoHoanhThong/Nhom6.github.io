@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tạo/Sửa Kỳ thi</title>
-    <link rel="stylesheet" href="createcontest_style.css">
+    <link rel="stylesheet" href="./css/createcontest_style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
 </head>
 
 <body>
-    <div style="display: flex; height: 100vh; width: 100%;">
+    <div style="display: flex; height: 100%; width: 100%;">
         <div class="sidebar" style="width: 15%;">
-            <img src="Logo PTIT.jpg" width="170">
+            <img src="./img/Logo_PTIT.jpg" width="170">
             <ul>
-                <li><a href="./trang-quan-ly-tai-khoan.html">Quản lý tài khoản</a></li>
+                <li><a href="./quan-ly-nguoi-dung.html">Quản lý người dùng</a></li>
                 <li style="background-color: #f2f2f2;"><a href="./trang-bai-thi.html">Quản lý kỳ thi</a></li>
                 <li><a href="./trang-thong-ke.html">Thống kê</a></li>
             </ul>
@@ -82,7 +82,7 @@
         </div>
     </div>
 
-    <script src="createcontest.js"></script>
+    <script src="./js/createcontest.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             if (localStorage.getItem('hasEdit') != null) {

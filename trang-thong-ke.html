@@ -5,20 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="trang-thong-ke.css">
+    <link rel="stylesheet" href="./css/trang-thong-ke.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     </script> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/table2excel.js"></script>
 </head>
 
 <body>
     <div style="display: flex; height: 100vh; width: 100%;">
         <div class="sidebar" style="width: 15%;">
-            <img src="Logo PTIT.jpg" width="170">
+            <img src="./img/Logo_PTIT.jpg" width="170">
             <ul>
-                <li><a href="./trang-quan-ly-tai-khoan.html">Quản lý tài khoản</a></li>
+                <li><a href="./quan-ly-nguoi-dung.html">Quản lý người dùng</a></li>
                 <li><a href="./trang-bai-thi.html">Quản lý kỳ thi</a></li>
                 <li style="background-color: #f2f2f2;"><a href="./trang-thong-ke.html">Thống kê</a></li>
             </ul>
@@ -59,504 +60,497 @@
             <div class="exam-list">
                 <div style="display: flex; justify-content: space-between;">
                     <h1 style="text-align: center; line-height: 57.6px;">Bảng tổng hợp kết quả</h1>
-                    <button id="addExamButton">
+                    <button id="convertExcel" onclick="Excel()">
                         <div style="display: flex;">
                             <i class="fa-solid fa-table" style="padding: 5px 5px 0px 0px"></i>
                             <h3>Excel</h3>
                         </div>
                     </button>
                 </div>
-                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Tìm theo tên hoặc mã sv" style="margin: 10px; height: 30px;padding: 0px 10px; border-radius: 10px;">
-                <div class="table-wrapper">
-                    <table class="table-content" id="products-datatable">
-                        <thead>
-                            <tr>
-                                <th style="width: 15%;" onclick="sort(0)">Họ và tên
-                                    <i class="fa-solid fa-sort"></i>
-                                </th>
-                                <th style="width: 10%;" onclick="sort(1)">Mã SV <i class="fa-solid fa-sort"></i></th>
-                                <th style="width: 10%;" onclick="sort(2)">Tên kì thi <i class="fa-solid fa-sort"></i>
-                                </th>
-                                <th style="width: 7%;" onclick="sort(3)">Số lần thi <i class="fa-solid fa-sort"></i>
-                                </th>
-                                <th style="width: 10%;" onclick="sort(4)">Tỉ lệ hoàn thành <i class="fa-solid fa-sort"></i></th>
-                                <th style="width: 5%;" onclick="sort(5)">Điểm <i class="fa-solid fa-sort"></i></th>
-                                <th style="width: 10%;" onclick="sort(6)">Trạng thái <i class="fa-solid fa-sort"></i>
-                                </th>
-                                <th style="width: 10%;">Hành động</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Tìm theo tên" style="margin: 10px; height: 30px;padding: 0px 10px; border-radius: 10px;">
+                <!-- <div class="table-wrapper"> -->
+                <table class="table-content" id="products-datatable">
+                    <thead>
+                        <tr>
+                            <th style="width: 15%;" onclick="sort(0)">Họ và tên
+                                <i class="fa-solid fa-sort"></i>
+                            </th>
+                            <th style="width: 10%;" onclick="sort(1)">Mã SV <i class="fa-solid fa-sort"></i></th>
+                            <th style="width: 10%;" onclick="sort(2)">Tên kì thi <i class="fa-solid fa-sort"></i>
+                            </th>
+                            <th style="width: 7%;" onclick="sort(3)">Số lần thi <i class="fa-solid fa-sort"></i>
+                            </th>
+                            <th style="width: 10%;" onclick="sort(4)">Tỉ lệ hoàn thành <i class="fa-solid fa-sort"></i>
+                            </th>
+                            <th style="width: 5%;" onclick="sort(5)">Điểm <i class="fa-solid fa-sort"></i></th>
+                            <th style="width: 10%;" onclick="sort(6)">Trạng thái <i class="fa-solid fa-sort"></i>
+                            </th>
+                            <th style="width: 10%;">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
 
-                                    Nguyễn Văn Đức
+                                Nguyễn Văn Đức
 
-                                </td>
-                                <td class="table-user">
-                                    B21DCCN253
-                                </td>
-                                <td>
-                                    Học kì 1
-                                </td>
-                                <td>
-                                    1
-                                </td>
-                                <td>
-                                    60.32%
-                                </td>
-                                <td>
-                                    7.3
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Qua môn</span>
-                                </td>
+                            </td>
+                            <td class="table-user">
+                                B21DCCN253
+                            </td>
+                            <td>
+                                Học kì
+                            </td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                60.32%
+                            </td>
+                            <td>
+                                7.3
+                            </td>
+                            <td>
+                                <span class="badge bg-success">Qua môn</span>
+                            </td>
 
-                                <td>
-                                    <div class="user-button1">
-                                        <button style="cursor: pointer;" class="delete-user">
-                                        <img class="user-button" src="dt.png" width="20" height="20">
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+                            <td>
+                                <div class="user-button1">
+                                    <i class="fa-solid fa-pen" style="color: #63E6BE; font-size: 20px; margin-right: 5px;"></i>
+                                    <i class="fa-solid fa-trash" style="font-size: 20px; color: rgb(255, 70, 70);"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
 
-                                    Nguyễn Văn Nam
+                                Nguyễn Văn Nam
 
-                                </td>
-                                <td class="table-user">
-                                    B21DCCN254
-                                </td>
-                                <td>
-                                    Thi lại
-                                </td>
-                                <td>
-                                    2
-                                </td>
-                                <td>
-                                    40%
-                                </td>
-                                <td>
-                                    2.8
-                                </td>
-                                <td>
-                                    <span class="badge bg-danger">Trượt môn</span>
-                                </td>
+                            </td>
+                            <td class="table-user">
+                                B21DCCN254
+                            </td>
+                            <td>
+                                Thi lại
+                            </td>
+                            <td>
+                                2
+                            </td>
+                            <td>
+                                40.22%
+                            </td>
+                            <td>
+                                2.8
+                            </td>
+                            <td>
+                                <span class="badge bg-danger">Trượt môn</span>
+                            </td>
 
-                                <td>
-                                    <div class="user-button1">
-                                        <button style="cursor: pointer;" class="delete-user">
-                                        <img class="user-button" src="dt.png" width="20" height="20">
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+                            <td>
+                                <div class="user-button1">
+                                    <i class="fa-solid fa-pen" style="color: #63E6BE; font-size: 20px; margin-right: 5px;"></i>
+                                    <i class="fa-solid fa-trash" style="font-size: 20px; color: rgb(255, 70, 70);"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
 
-                                    Nguyễn Văn Quý
+                                Nguyễn Văn Quý
 
-                                </td>
-                                <td class="table-user">
-                                    B21DCCN001
-                                </td>
-                                <td>
-                                    Học kì 1
-                                </td>
-                                <td>
-                                    1
-                                </td>
-                                <td>
-                                    50%
-                                </td>
-                                <td>
-                                    5
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Qua môn</span>
-                                </td>
+                            </td>
+                            <td class="table-user">
+                                B21DCCN001
+                            </td>
+                            <td>
+                                Học kì
+                            </td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                50.23%
+                            </td>
+                            <td>
+                                5
+                            </td>
+                            <td>
+                                <span class="badge bg-success">Qua môn</span>
+                            </td>
 
-                                <td>
-                                    <div class="user-button1">
-                                        <button style="cursor: pointer;" class="delete-user">
-                                        <img class="user-button" src="dt.png" width="20" height="20">
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+                            <td>
+                                <div class="user-button1">
+                                    <i class="fa-solid fa-pen" style="color: #63E6BE; font-size: 20px; margin-right: 5px;"></i>
+                                    <i class="fa-solid fa-trash" style="font-size: 20px; color: rgb(255, 70, 70);"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
 
-                                    Nguyễn Thị Lan
+                                Nguyễn Thị Lan
 
-                                </td>
-                                <td class="table-user">
-                                    B21DCCN003
-                                </td>
-                                <td>
-                                    Tốt nghiệp
-                                </td>
-                                <td>
-                                    1
-                                </td>
-                                <td>
-                                    90%
-                                </td>
-                                <td>
-                                    8.6
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Tốt nghiệp</span>
-                                </td>
+                            </td>
+                            <td class="table-user">
+                                B21DCCN003
+                            </td>
+                            <td>
+                                Tốt nghiệp
+                            </td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                90.56%
+                            </td>
+                            <td>
+                                8.6
+                            </td>
+                            <td>
+                                <span class="badge bg-success">Tốt nghiệp</span>
+                            </td>
 
-                                <td>
-                                    <div class="user-button1">
-                                        <button style="cursor: pointer;" class="delete-user">
-                                        <img class="user-button" src="dt.png" width="20" height="20">
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+                            <td>
+                                <div class="user-button1">
+                                    <i class="fa-solid fa-pen" style="color: #63E6BE; font-size: 20px; margin-right: 5px;"></i>
+                                    <i class="fa-solid fa-trash" style="font-size: 20px; color: rgb(255, 70, 70);"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
 
-                                    Trần Đình Nam
+                                Trần Đình Nam
 
-                                </td>
-                                <td class="table-user">
-                                    B21DCCN231
-                                </td>
-                                <td>
-                                    Học kì 3
-                                </td>
-                                <td>
-                                    4
-                                </td>
-                                <td>
-                                    69.32%
-                                </td>
-                                <td>
-                                    6.9
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Qua môn</span>
-                                </td>
+                            </td>
+                            <td class="table-user">
+                                B21DCCN231
+                            </td>
+                            <td>
+                                Học kì
+                            </td>
+                            <td>
+                                4
+                            </td>
+                            <td>
+                                69.32%
+                            </td>
+                            <td>
+                                6.9
+                            </td>
+                            <td>
+                                <span class="badge bg-success">Qua môn</span>
+                            </td>
 
-                                <td>
-                                    <div class="user-button1">
-                                        <button style="cursor: pointer;" class="delete-user">
-                                        <img class="user-button" src="dt.png" width="20" height="20">
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+                            <td>
+                                <div class="user-button1">
+                                    <i class="fa-solid fa-pen" style="color: #63E6BE; font-size: 20px; margin-right: 5px;"></i>
+                                    <i class="fa-solid fa-trash" style="font-size: 20px; color: rgb(255, 70, 70);"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
 
-                                    Bùi Công Nam
+                                Bùi Công Nam
 
-                                </td>
-                                <td class="table-user">
-                                    B21DCCN252
-                                </td>
-                                <td>
-                                    Thi lại
-                                </td>
-                                <td>
-                                    2
-                                </td>
-                                <td>
-                                    40%
-                                </td>
-                                <td>
-                                    2.8
-                                </td>
-                                <td>
-                                    <span class="badge bg-danger">Trượt môn</span>
-                                </td>
+                            </td>
+                            <td class="table-user">
+                                B21DCCN252
+                            </td>
+                            <td>
+                                Thi lại
+                            </td>
+                            <td>
+                                2
+                            </td>
+                            <td>
+                                40.87%
+                            </td>
+                            <td>
+                                2.8
+                            </td>
+                            <td>
+                                <span class="badge bg-danger">Trượt môn</span>
+                            </td>
 
-                                <td>
-                                    <div class="user-button1">
-                                        <button style="cursor: pointer;" class="delete-user">
-                                        <img class="user-button" src="dt.png" width="20" height="20">
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+                            <td>
+                                <div class="user-button1">
+                                    <i class="fa-solid fa-pen" style="color: #63E6BE; font-size: 20px; margin-right: 5px;"></i>
+                                    <i class="fa-solid fa-trash" style="font-size: 20px; color: rgb(255, 70, 70);"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
 
-                                    Nguyễn Văn Phong
+                                Nguyễn Văn Phong
 
-                                </td>
-                                <td class="table-user">
-                                    B21DCCN014
-                                </td>
-                                <td>
-                                    Học kì hè
-                                </td>
-                                <td>
-                                    1
-                                </td>
-                                <td>
-                                    70.5%
-                                </td>
-                                <td>
-                                    7.3
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Qua môn</span>
-                                </td>
+                            </td>
+                            <td class="table-user">
+                                B21DCCN014
+                            </td>
+                            <td>
+                                Học kì hè
+                            </td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                70.52%
+                            </td>
+                            <td>
+                                7.3
+                            </td>
+                            <td>
+                                <span class="badge bg-success">Qua môn</span>
+                            </td>
 
-                                <td>
-                                    <div class="user-button1">
-                                        <button style="cursor: pointer;" class="delete-user">
-                                        <img class="user-button" src="dt.png" width="20" height="20">
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+                            <td>
+                                <div class="user-button1">
+                                    <i class="fa-solid fa-pen" style="color: #63E6BE; font-size: 20px; margin-right: 5px;"></i>
+                                    <i class="fa-solid fa-trash" style="font-size: 20px; color: rgb(255, 70, 70);"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
 
-                                    Trần Quang Toàn
+                                Trần Quang Toàn
 
-                                </td>
-                                <td class="table-user">
-                                    B21DCCN123
-                                </td>
-                                <td>
-                                    Thi hết môn
-                                </td>
-                                <td>
-                                    5
-                                </td>
-                                <td>
-                                    67%
-                                </td>
-                                <td>
-                                    5.6
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Qua môn</span>
-                                </td>
+                            </td>
+                            <td class="table-user">
+                                B21DCCN123
+                            </td>
+                            <td>
+                                Thi hết môn
+                            </td>
+                            <td>
+                                5
+                            </td>
+                            <td>
+                                67.44%
+                            </td>
+                            <td>
+                                5.6
+                            </td>
+                            <td>
+                                <span class="badge bg-success">Qua môn</span>
+                            </td>
 
-                                <td>
-                                    <div class="user-button1">
-                                        <button style="cursor: pointer;" class="delete-user">
-                                        <img class="user-button" src="dt.png" width="20" height="20">
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+                            <td>
+                                <div class="user-button1">
+                                    <i class="fa-solid fa-pen" style="color: #63E6BE; font-size: 20px; margin-right: 5px;"></i>
+                                    <i class="fa-solid fa-trash" style="font-size: 20px; color: rgb(255, 70, 70);"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
 
-                                    Nguyễn Văn Đức
+                                Nguyễn Văn Đức
 
-                                </td>
-                                <td class="table-user">
-                                    B21DCCN643
-                                </td>
-                                <td>
-                                    Học kì 2
-                                </td>
-                                <td>
-                                    2
-                                </td>
-                                <td>
-                                    60.32%
-                                </td>
-                                <td>
-                                    4
-                                </td>
-                                <td>
-                                    <span class="badge bg-danger">Trượt môn</span>
-                                </td>
+                            </td>
+                            <td class="table-user">
+                                B21DCCN643
+                            </td>
+                            <td>
+                                Học kì
+                            </td>
+                            <td>
+                                2
+                            </td>
+                            <td>
+                                60.32%
+                            </td>
+                            <td>
+                                4
+                            </td>
+                            <td>
+                                <span class="badge bg-danger">Trượt môn</span>
+                            </td>
 
-                                <td>
-                                    <div class="user-button1">
-                                        <button style="cursor: pointer;" class="delete-user">
-                                        <img class="user-button" src="dt.png" width="20" height="20">
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+                            <td>
+                                <div class="user-button1">
+                                    <i class="fa-solid fa-pen" style="color: #63E6BE; font-size: 20px; margin-right: 5px;"></i>
+                                    <i class="fa-solid fa-trash" style="font-size: 20px; color: rgb(255, 70, 70);"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
 
-                                    Trịnh Nguyên Hoàng
+                                Trịnh Nguyên Hoàng
 
-                                </td>
-                                <td class="table-user">
-                                    B21DCCN167
-                                </td>
-                                <td>
-                                    Thi lại
-                                </td>
-                                <td>
-                                    2
-                                </td>
-                                <td>
-                                    50%
-                                </td>
-                                <td>
-                                    3.8
-                                </td>
-                                <td>
-                                    <span class="badge bg-danger">Trượt môn</span>
-                                </td>
+                            </td>
+                            <td class="table-user">
+                                B21DCCN167
+                            </td>
+                            <td>
+                                Thi lại
+                            </td>
+                            <td>
+                                2
+                            </td>
+                            <td>
+                                50.28%
+                            </td>
+                            <td>
+                                3.8
+                            </td>
+                            <td>
+                                <span class="badge bg-danger">Trượt môn</span>
+                            </td>
 
-                                <td>
-                                    <div class="user-button1">
-                                        <button style="cursor: pointer;" class="delete-user">
-                                        <img class="user-button" src="dt.png" width="20" height="20">
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+                            <td>
+                                <div class="user-button1">
+                                    <i class="fa-solid fa-pen" style="color: #63E6BE; font-size: 20px; margin-right: 5px;"></i>
+                                    <i class="fa-solid fa-trash" style="font-size: 20px; color: rgb(255, 70, 70);"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
 
-                                    Nguyễn Xuân Hùng
+                                Nguyễn Xuân Hùng
 
-                                </td>
-                                <td class="table-user">
-                                    B21DCCN589
-                                </td>
-                                <td>
-                                    Học kì 1
-                                </td>
-                                <td>
-                                    1
-                                </td>
-                                <td>
-                                    60.32%
-                                </td>
-                                <td>
-                                    6.3
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Qua môn</span>
-                                </td>
+                            </td>
+                            <td class="table-user">
+                                B21DCCN589
+                            </td>
+                            <td>
+                                Học kì
+                            </td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                60.32%
+                            </td>
+                            <td>
+                                6.3
+                            </td>
+                            <td>
+                                <span class="badge bg-success">Qua môn</span>
+                            </td>
 
-                                <td>
-                                    <div class="user-button1">
-                                        <button style="cursor: pointer;" class="delete-user">
-                                        <img class="user-button" src="dt.png" width="20" height="20">
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+                            <td>
+                                <div class="user-button1">
+                                    <i class="fa-solid fa-pen" style="color: #63E6BE; font-size: 20px; margin-right: 5px;"></i>
+                                    <i class="fa-solid fa-trash" style="font-size: 20px; color: rgb(255, 70, 70);"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
 
-                                    Nguyễn Văn Nam
+                                Nguyễn Văn Nam
 
-                                </td>
-                                <td class="table-user">
-                                    B21DCCN254
-                                </td>
-                                <td>
-                                    Thi lại
-                                </td>
-                                <td>
-                                    2
-                                </td>
-                                <td>
-                                    40%
-                                </td>
-                                <td>
-                                    2.8
-                                </td>
-                                <td>
-                                    <span class="badge bg-danger">Trượt môn</span>
-                                </td>
+                            </td>
+                            <td class="table-user">
+                                B21DCCN254
+                            </td>
+                            <td>
+                                Thi lại
+                            </td>
+                            <td>
+                                2
+                            </td>
+                            <td>
+                                43.15%
+                            </td>
+                            <td>
+                                2.8
+                            </td>
+                            <td>
+                                <span class="badge bg-danger">Trượt môn</span>
+                            </td>
 
-                                <td>
-                                    <div class="user-button1">
-                                        <button style="cursor: pointer;" class="delete-user">
-                                        <img class="user-button" src="dt.png" width="20" height="20">
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+                            <td>
+                                <div class="user-button1">
+                                    <i class="fa-solid fa-pen" style="color: #63E6BE; font-size: 20px; margin-right: 5px;"></i>
+                                    <i class="fa-solid fa-trash" style="font-size: 20px; color: rgb(255, 70, 70);"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
 
-                                    Trần Trung Hiếu
+                                Trần Trung Hiếu
 
-                                </td>
-                                <td class="table-user">
-                                    B21DCCN215
-                                </td>
-                                <td>
-                                    Học kì 1
-                                </td>
-                                <td>
-                                    1
-                                </td>
-                                <td>
-                                    79.32%
-                                </td>
-                                <td>
-                                    7
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Qua môn</span>
-                                </td>
+                            </td>
+                            <td class="table-user">
+                                B21DCCN215
+                            </td>
+                            <td>
+                                Học kì
+                            </td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                79.32%
+                            </td>
+                            <td>
+                                7
+                            </td>
+                            <td>
+                                <span class="badge bg-success">Qua môn</span>
+                            </td>
 
-                                <td>
-                                    <div class="user-button1">
-                                        <button style="cursor: pointer;" class="delete-user">
-                                        <img class="user-button" src="dt.png" width="20" height="20">
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+                            <td>
+                                <div class="user-button1">
+                                    <i class="fa-solid fa-pen" style="color: #63E6BE; font-size: 20px; margin-right: 5px;"></i>
+                                    <i class="fa-solid fa-trash" style="font-size: 20px; color: rgb(255, 70, 70);"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
 
-                                    Đoàn Viết Tú
+                                Đoàn Viết Tú
 
-                                </td>
-                                <td class="table-user">
-                                    B21DCCN254
-                                </td>
-                                <td>
-                                    Học kì 1
-                                </td>
-                                <td>
-                                    1
-                                </td>
-                                <td>
-                                    60%
-                                </td>
-                                <td>
-                                    5
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Qua môn</span>
-                                </td>
+                            </td>
+                            <td class="table-user">
+                                B21DCCN254
+                            </td>
+                            <td>
+                                Học kì
+                            </td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                67.85%
+                            </td>
+                            <td>
+                                5
+                            </td>
+                            <td>
+                                <span class="badge bg-success">Qua môn</span>
+                            </td>
 
-                                <td>
-                                    <div class="user-button1">
-                                        <button style="cursor: pointer;" id="detailView">
-                                        <img class="user-button" src="dt.png" width="20" height="20">
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            <td>
+                                <div class="user-button1">
+                                    <i class="fa-solid fa-pen" style="color: #63E6BE; font-size: 20px; margin-right: 5px;"></i>
+                                    <i class="fa-solid fa-trash" style="font-size: 20px; color: rgb(255, 70, 70);"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                </div>
+                <!-- </div> -->
 
             </div>
         </div>
-        <script src="trang-thong-ke.js"></script>
+        <script src="./js/trang-thong-ke.js"></script>
+        <script>
+            function Excel() {
+                var table2excel = new Table2Excel();
+                table2excel.export(document.querySelectorAll("#products-datatable"));
+            }
+        </script>
 </body>
 
 </html>

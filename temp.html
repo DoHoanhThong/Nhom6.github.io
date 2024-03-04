@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/temp.css">
+
+</head>
+
+<body>
+    <div class="page">
+        <div class="grid-pane">
+            <div class="grid-element">
+                <h2>Số lượng người dùng</h2>
+                <p id="userCount">0</p>
+            </div>
+            <div class="grid-element">
+                <h2>Tỷ lệ hoàn thành</h2>
+                <p id="completionRate">0%</p>
+            </div>
+            <div class="grid-element">
+                <h2>Điểm trung bình</h2>
+                <p id="averageScore">0</p>
+            </div>
+        </div>
+        <div class="exam-list">
+            <h2>Quản lý danh sách kỳ thi</h2>
+            <button id="addExamButton">Thêm mới kỳ thi</button>
+            <table id="examTable">
+                <thead>
+                    <tr>
+                        <th>Tên kỳ thi</th>
+                        <th>Ngày diễn ra</th>
+                        <th>Chỉnh sửa</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dữ liệu kỳ thi sẽ được thêm vào đây -->
+                </tbody>
+            </table>
+        </div>
+        <div class="user-list">
+            <h2>Quản lý danh sách người dùng</h2>
+            <button id="addUserButton">Thêm mới người dùng</button>
+            <table id="userTable">
+                <thead>
+                    <tr>
+                        <th>Tên người dùng</th>
+                        <th>Email</th>
+                        <th>Chỉnh sửa</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dữ liệu người dùng sẽ được thêm vào đây -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Đường dẫn tới JavaScript để xử lý logic -->
+
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

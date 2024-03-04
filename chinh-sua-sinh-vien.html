@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/chinh-sua-sinh-vien.css">
+</head>
+
+<body>
+    <div style="display: flex; height: 100vh; width: 100%;">
+        <div class="sidebar" style="width: 15%;">
+            <img src="./img/Logo_PTIT.jpg" width="150">
+            <ul>
+                <li><a href="./quan-ly-nguoi-dung.html">Quản lý người dùng</a></li>
+                <li><a href="./trang-bai-thi.html">Quản lý kỳ thi</a></li>
+                <li><a href="./trang-thong-ke.html">Thống kê</a></li>
+            </ul>
+        </div>
+        <div class="content" style="width: 85%; margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between;">
+                <h1 style="text-align: center; line-height: 57.6px;">Bảng tổng hợp kết quả của sinh viên</h1>
+            </div>
+            <table class="table-content" id="products-datatable">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;" onclick="sort(0)">Ngày thi
+                            <i class="fa-solid fa-sort"></i>
+                        </th>
+                        <th style="width: 10%;" onclick="sort(1)">Mã kì thi <i class="fa-solid fa-sort"></i></th>
+                        <th style="width: 10%;" onclick="sort(2)">Tên kì thi <i class="fa-solid fa-sort"></i>
+                        </th>
+                        <th style="width: 7%;" onclick="sort(3)">Số lần thi <i class="fa-solid fa-sort"></i>
+                        </th>
+                        <th style="width: 10%;" onclick="sort(4)">Tỉ lệ hoàn thành <i class="fa-solid fa-sort"></i>
+                        </th>
+                        <th style="width: 5%;" onclick="sort(5)">Điểm <i class="fa-solid fa-sort"></i></th>
+                        <th style="width: 10%;" onclick="sort(6)">Trạng thái <i class="fa-solid fa-sort"></i>
+                        </th>
+                        <th style="width: 10%;">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2023-05-15</td>
+                        <td>KTX001</td>
+                        <td>Kì thi Toán</td>
+                        <td>1</td>
+                        <td>90%</td>
+                        <td>8.5</td>
+                        <td>Hoàn thành</td>
+                        <td><a href="chi-tiet-cau-hoi.html"><button>Xem chi tiết</button></a></td>
+                    </tr>
+                    <tr>
+                        <td>2023-06-20</td>
+                        <td>KTL002</td>
+                        <td>Kì thi Lý</td>
+                        <td>1</td>
+                        <td>85%</td>
+                        <td>9.0</td>
+                        <td>Hoàn thành</td>
+                        <td><button>Xem chi tiết</button></td>
+                    </tr>
+                    <tr>
+                        <td>2023-07-10</td>
+                        <td>KTH003</td>
+                        <td>Kì thi Hóa</td>
+                        <td>2</td>
+                        <td>80%</td>
+                        <td>7.8</td>
+                        <td>Hoàn thành</td>
+                        <td><button>Xem chi tiết</button></td>
+                    </tr>
+                    <tr>
+                        <td>2023-08-05</td>
+                        <td>KTS004</td>
+                        <td>Kì thi Sinh</td>
+                        <td>1</td>
+                        <td>88%</td>
+                        <td>8.9</td>
+                        <td>Hoàn thành</td>
+                        <td><button>Xem chi tiết</button></td>
+                    </tr>
+                    <tr>
+                        <td>2023-09-18</td>
+                        <td>KTG005</td>
+                        <td>Kì thi GDCD</td>
+                        <td>3</td>
+                        <td>92%</td>
+                        <td>8.7</td>
+                        <td>Hoàn thành</td>
+                        <td><button>Xem chi tiết</button></td>
+                    </tr>
+                    <tr>
+                        <td>2023-10-20</td>
+                        <td>KTV006</td>
+                        <td>Kì thi Văn</td>
+                        <td>1</td>
+                        <td>78%</td>
+                        <td>8.2</td>
+                        <td>Hoàn thành</td>
+                        <td><button>Xem chi tiết</button></td>
+                    </tr>
+                    <tr>
+                        <td>2023-11-12</td>
+                        <td>KTQ007</td>
+                        <td>Kì thi Quốc phòng</td>
+                        <td>2</td>
+                        <td>87%</td>
+                        <td>8.6</td>
+                        <td>Hoàn thành</td>
+                        <td><button>Xem chi tiết</button></td>
+                    </tr>
+                    <tr>
+                        <td>2023-12-05</td>
+                        <td>KTT008</td>
+                        <td>Kì thi Tin học</td>
+                        <td>1</td>
+                        <td>95%</td>
+                        <td>9.5</td>
+                        <td>Hoàn thành</td>
+                        <td><button>Xem chi tiết</button></td>
+                    </tr>
+                    <tr>
+                        <td>2024-01-08</td>
+                        <td>KTK009</td>
+                        <td>Kì thi Kỹ thuật</td>
+                        <td>1</td>
+                        <td>82%</td>
+                        <td>7.9</td>
+                        <td>Hoàn thành</td>
+                        <td><button>Xem chi tiết</button></td>
+                    </tr>
+                    <tr>
+                        <td>2024-02-14</td>
+                        <td>KTB010</td>
+                        <td>Kì thi Biểu diễn nghệ thuật</td>
+                        <td>1</td>
+                        <td>90%</td>
+                        <td>8.8</td>
+                        <td>Hoàn thành</td>
+                        <td><button>Xem chi tiết</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>

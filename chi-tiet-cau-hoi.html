@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/chinh-sua-sinh-vien.css">
+</head>
+
+<body>
+    <div style="display: flex; height: 100vh; width: 100%;">
+        <div class="sidebar" style="width: 15%;">
+            <img src="./img/Logo_PTIT.jpg" width="150">
+            <ul>
+                <li><a href="./quan-ly-nguoi-dung.html">Quản lý người dùng</a></li>
+                <li><a href="./trang-bai-thi.html">Quản lý kỳ thi</a></li>
+                <li><a href="./trang-thong-ke.html">Thống kê</a></li>
+            </ul>
+        </div>
+        <div class="content" style="width: 85%; margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between;">
+                <h1 style="text-align: center; line-height: 57.6px;">Bảng tổng hợp chi tiết của sinh viên</h1>
+            </div>
+            <table class="table-content" id="products-datatable">
+                <thead>
+                    <tr>
+                        <th style="width: 5%;" onclick="sort(0)">Số thứ tự
+                            <i class="fa-solid fa-sort"></i>
+                        </th>
+                        <th style="width: 10%;" onclick="sort(1)">Câu hỏi <i class="fa-solid fa-sort"></i></th>
+                        <th style="width: 10%;" onclick="sort(2)">Đáp án <i class="fa-solid fa-sort"></i>
+                        </th>
+                        <th style="width: 7%;" onclick="sort(3)">Đáp án sinh viên chọn <i class="fa-solid fa-sort"></i>
+                        </th>
+                        <th style="width: 10%;" onclick="sort(4)">Điểm/Câu<i class="fa-solid fa-sort"></i>
+                        </th>
+                        <th style="width: 10%;">Giải thích</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Câu hỏi 1</td>
+                        <td>Đáp án A</td>
+                        <td>Đáp án B</td>
+                        <td>0.5</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Câu hỏi 2</td>
+                        <td>Đáp án C</td>
+                        <td>Đáp án C</td>
+                        <td>1.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Câu hỏi 3</td>
+                        <td>Đáp án B</td>
+                        <td>Đáp án A</td>
+                        <td>0.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Câu hỏi 4</td>
+                        <td>Đáp án D</td>
+                        <td>Đáp án D</td>
+                        <td>1.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Câu hỏi 5</td>
+                        <td>Đáp án A</td>
+                        <td>Đáp án C</td>
+                        <td>0.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Câu hỏi 6</td>
+                        <td>Đáp án C</td>
+                        <td>Đáp án C</td>
+                        <td>1.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Câu hỏi 7</td>
+                        <td>Đáp án B</td>
+                        <td>Đáp án A</td>
+                        <td>0.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Câu hỏi 8</td>
+                        <td>Đáp án D</td>
+                        <td>Đáp án D</td>
+                        <td>1.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Câu hỏi 9</td>
+                        <td>Đáp án A</td>
+                        <td>Đáp án C</td>
+                        <td>0.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Câu hỏi 10</td>
+                        <td>Đáp án C</td>
+                        <td>Đáp án C</td>
+                        <td>1.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Câu hỏi 11</td>
+                        <td>Đáp án B</td>
+                        <td>Đáp án A</td>
+                        <td>0.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Câu hỏi 12</td>
+                        <td>Đáp án D</td>
+                        <td>Đáp án D</td>
+                        <td>1.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Câu hỏi 13</td>
+                        <td>Đáp án A</td>
+                        <td>Đáp án C</td>
+                        <td>0.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Câu hỏi 14</td>
+                        <td>Đáp án C</td>
+                        <td>Đáp án C</td>
+                        <td>1.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Câu hỏi 15</td>
+                        <td>Đáp án B</td>
+                        <td>Đáp án A</td>
+                        <td>0.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Câu hỏi 16</td>
+                        <td>Đáp án D</td>
+                        <td>Đáp án D</td>
+                        <td>1.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Câu hỏi 17</td>
+                        <td>Đáp án A</td>
+                        <td>Đáp án C</td>
+                        <td>0.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Câu hỏi 18</td>
+                        <td>Đáp án C</td>
+                        <td>Đáp án C</td>
+                        <td>1.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Câu hỏi 19</td>
+                        <td>Đáp án B</td>
+                        <td>Đáp án A</td>
+                        <td>0.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Câu hỏi 20</td>
+                        <td>Đáp án D</td>
+                        <td>Đáp án D</td>
+                        <td>1.0</td>
+                        <td>Giải thích</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>
